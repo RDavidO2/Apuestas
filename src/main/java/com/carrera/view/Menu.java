@@ -5,6 +5,12 @@
  */
 package com.carrera.view;
 
+import java.io.File;
+
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import com.carrera.archive.ReadCsv;
 import com.carrera.controller.Operaciones;
 
 /**
@@ -164,6 +170,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         jButton1.setText("Abrir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jRegister.setText("Registrar");
         jRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -447,6 +458,18 @@ public class Menu extends javax.swing.JFrame {
         //winner = Integer.parseInt(jWinner.getSelectedItem().toString());
         
     }//GEN-LAST:event_jWinnerActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("CSV FILES", "csv");
+        chooser.setFileFilter(filter);
+        chooser.showOpenDialog(null);
+        File f = chooser.getSelectedFile();
+        String path = f.getAbsolutePath();
+        new ReadCsv(path,op);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jRegisterActionPerformed(java.awt.event.ActionEvent evt) {                                          
 
