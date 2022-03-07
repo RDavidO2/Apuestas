@@ -8,6 +8,7 @@ package com.carrera.view;
 import java.io.File;
 
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.carrera.archive.ReadCsv;
@@ -472,10 +473,14 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jRegisterActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        try {
+            op.registraDatos(jName.getText(), getBet(), Integer.parseInt(jAmount.getText()));
+            op.imprimeDatos();
+            cleanComponents();
 
-        op.registraDatos(jName.getText(), getBet(), Integer.parseInt(jAmount.getText()));
-        op.imprimeDatos();
-        cleanComponents();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Verificar Campos Vacios");
+        }
     }
 
     private void jFinalizarActionPerformed(java.awt.event.ActionEvent evt) {                                           
