@@ -36,12 +36,14 @@ public class ReadCsv {
         String splitBy = ",";
         try {
             BufferedReader br = new BufferedReader(new FileReader(path));
+            int cont = 0;
             while ((line = br.readLine()) != null)
             //returns a Boolean value  
             {   
+                boolean save = true;
+                String[] bet = line.split(splitBy);
+                int[] orderHorses = new int[10];
                 try {
-                    String[] bet = line.split(splitBy);
-                    int[] orderHorses = new int[10];
                     //use comma as separator 
                     orderHorses[0] = Integer.parseInt(bet[2].replaceAll("<", "").replaceAll(">", ""));
                     orderHorses[1] = Integer.parseInt(bet[3].replaceAll("<", "").replaceAll(">", ""));
@@ -55,11 +57,16 @@ public class ReadCsv {
                     orderHorses[9] = Integer.parseInt(bet[11].replaceAll("<", "").replaceAll(">", ""));
                     
                     //System.out.println(" Name=" + bet[0].replaceAll("<", "").replaceAll(">", "")  + ", Amount=" + bet[1] + ", Winner=" + bet[2] + ", second= " + bet[3]);
-                    op.registraDatos(bet[0].replaceAll("<", "").replaceAll(">", ""), orderHorses, Integer.parseInt(bet[1].replaceAll("<", "").replaceAll(">", "")));
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "Error, datos con formato incorrecto ");
-                    
+                    //JOptionPane.showMessageDialog(null, "Error, datos con formato incorrecto ");
+                    System.out.println("encontre un error en la linea: "+cont);
+                    save = false;
                 }
+                if(save) {
+                    op.registraDatos(bet[0].replaceAll("<", "").replaceAll(">", ""), orderHorses, Integer.parseInt(bet[1].replaceAll("<", "").replaceAll(">", "")));
+
+                }
+                cont ++;
                 
             }
             JOptionPane.showMessageDialog(null, "Apuestas agregadas correctamente");

@@ -8,6 +8,17 @@ public class Gambler {
     private int amount;
     private final int numberOfBets = 10;
     private int[]bets=new int[numberOfBets];
+    private int points = 0;
+
+    public int getPoints() {
+        return points;
+    }
+
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
 
     /**
      * Constructor de la clase Gambler

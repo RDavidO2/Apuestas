@@ -9,6 +9,11 @@ public class ListBets {
     private Nodo head = null;
     private int longitude = 0;
 
+    public int getLongitude() {
+        return longitude;
+    }
+
+
     private class Nodo{
         public Gambler bet;
         public Nodo next = null;
@@ -30,7 +35,7 @@ public class ListBets {
     public void insertBeginning(Gambler bet){
         Nodo nodo = new Nodo(bet);
         System.out.println("Nodo creado, Nombre: "+ nodo.bet.getName());
-
+        
         nodo.next = head;
         head = nodo;
         longitude ++;
@@ -65,6 +70,7 @@ public class ListBets {
     /**
      * Metodo encargado de eliminar una apuesta realizada
      * @param n posicion de la apuesta realizada dentro del listado
+     * @param rejected
      */
     public void deleteBet(int n){
         if(head != null){
