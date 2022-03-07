@@ -51,6 +51,8 @@ public class Operaciones {
      * Metodo encargado de verificar las apuestas
      */
     public void verifyBets(){
+        long TInicio, TFin, tiempo; 
+        TInicio = System.currentTimeMillis();
         Gambler[] datos2 = listOfBets.getBets();
 
         for(int i=0; i<datos2.length; i++){
@@ -100,6 +102,9 @@ public class Operaciones {
             }
 
         }
+        TFin = System.currentTimeMillis();
+        tiempo= TFin-TInicio;
+        System.out.println("Tiempo que se tardo verificando: " + tiempo);
             
     }
 
@@ -162,6 +167,8 @@ public class Operaciones {
      * @param vector contiene el array con los elementos
      */
     public Gambler[] Insercion () {
+        long TInicio, TFin, tiempo;
+        TInicio = System.currentTimeMillis();
         Gambler [] datos = acepted.getBets();
         for (int i=1; i < datos.length; i++) {
            int aux = datos[i].getPoints(); //datos[i]
@@ -174,6 +181,9 @@ public class Operaciones {
            //vector[j+1] = aux;
            datos[j+1] = aux2;
         }
+        TFin = System.currentTimeMillis();
+        tiempo= TFin-TInicio;
+        System.out.println("Tiempo que se tardo ordenando: " + tiempo);
         return datos;
      }
 

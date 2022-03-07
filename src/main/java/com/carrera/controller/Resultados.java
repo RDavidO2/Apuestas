@@ -24,6 +24,8 @@ public class Resultados {
      * Metodo encargado de verificar los resultados y hacer la suma de puntos
      */
     public void verifica() {
+        long TInicio, TFin, tiempo; 
+        TInicio = System.currentTimeMillis();
         Gambler[] datos = acepted.getBets();
         for(int i =0; i<datos.length; i++) {
             int puntos = 0;
@@ -69,7 +71,9 @@ public class Resultados {
 
         }
 
-
+        TFin = System.currentTimeMillis();
+        tiempo= TFin-TInicio;
+        System.out.println("Tiempo que se tardo verificando: " + tiempo);
     }
 
     
