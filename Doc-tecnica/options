@@ -1,0 +1,20 @@
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'D:/ProyectosJAVA/demo/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'D:/ProyectosJAVA/demo/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'demo 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'demo 1.0-SNAPSHOT API'
